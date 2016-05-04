@@ -10,10 +10,10 @@ class Tribe
   end
   def tribal_council(options = {})
     @immune = options[:immune]
-    voted_out = @members.reject { |member| @immune.include?(member)} if @immune.is_a?(Array)
-    voted_out = @members.reject { |member| @immune == member} if @immune.is_a?(Contestant)
-    puts "#{voted_out[0].name.capitalize} was voted off.".red
-    @members.delete(voted_out[0])
-    return voted_out[0]
+    voted_out_array = @members.reject { |member| @immune == member} 
+    voted_out = voted_out_array.sample
+    puts "#{voted_out.name.capitalize} was voted off.".red
+    @members.delete(voted_out)
+    return voted_out
 	end
 end

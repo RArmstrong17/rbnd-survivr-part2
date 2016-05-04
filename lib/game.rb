@@ -30,12 +30,12 @@ class Game
     if @tribes.is_a?(Array)
       @tribes.each do |tribe|
         losers = tribe.members.shuffle(random: Random.new(1))
-        immune = losers.slice(0..-2)
+        immune = losers.sample
         return tribe.tribal_council(immune: immune)
       end
     else
       losers = @tribes.members.shuffle(random: Random.new(1))
-      immune = losers.slice(0..-2)
+      immune = losers.sample
       return @tribes.tribal_council(immune: immune)
     end
   end

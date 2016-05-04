@@ -25,8 +25,8 @@ def phase_one
   puts "Each tribe will compete in 8 gruesome challanges, a member from each losing tribe will be voted off.".white
   8.times do
     losing_tribe = @borneo.immunity_challenge
-    losers = losing_tribe.members.shuffle!(random: Random.new(9))
-    immune = losers.sample(losers.length - 1)
+    losers = losing_tribe.members.shuffle!(random: Random.new(1))
+    immune = losers.sample
     losing_tribe.tribal_council(immune: immune)
   end
 end
