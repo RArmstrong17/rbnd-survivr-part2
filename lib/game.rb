@@ -1,3 +1,6 @@
+require_relative "../lib/colorizr"
+String.create_colors
+
 class Game
   attr_reader :tribes
   def initialize(*tribes)
@@ -19,7 +22,6 @@ class Game
     @tribes.drop(@tribes.length)
   end
   def merge(name)
-    self.clear_tribes
     members = @tribes.map(&:members).flatten
     combined = Tribe.new(name: name, members: members)
     @tribes = combined

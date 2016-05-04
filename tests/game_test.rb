@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative "../lib/game"
 require_relative "../lib/tribe"
 require_relative "../lib/contestant"
+require_relative "../lib/colorizr"
 
 class TestGame < Minitest::Test
 

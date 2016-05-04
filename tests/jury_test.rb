@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require_relative "../lib/contestant"
 require_relative "../lib/jury"
+require_relative "../lib/colorizr"
 
 class TestJury < Minitest::Test
 

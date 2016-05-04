@@ -1,3 +1,6 @@
+require_relative "../lib/colorizr"
+String.create_colors
+
 class Jury
   attr_accessor :members
   def initialize

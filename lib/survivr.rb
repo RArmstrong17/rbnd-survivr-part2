@@ -25,10 +25,10 @@ def phase_one
   puts "Each tribe will compete in 8 gruesome challanges, a member from each losing tribe will be voted off.".white
   8.times do
     losing_tribe = @borneo.immunity_challenge
-    losers = losing_tribe.members.shuffle(random: Random.new(1))
-    losing_tribe.tribal_council(immune: losers)
+    losers = losing_tribe.members.shuffle!(random: Random.new(9))
+    immune = losers.sample(losers.length - 1)
+    losing_tribe.tribal_council(immune: immune)
   end
-  puts "In the second phase of Survivr the original two tribes will merge to form one tribe. The tribe will compete in individual chalanges and a loser will be voted off.".white
 end
 
 def phase_two
@@ -48,6 +48,7 @@ end
 # If all the tests pass, the code below should run the entire simulation!!
 #=========================================================
 phase_one #8 eliminations
+puts "In the second phase of Survivr the original two tribes will merge to form one tribe. The tribe will compete in individual chalanges and a loser will be voted off.".white
 @merge_tribe = @borneo.merge("Cello") # After 8 eliminations, merge the two tribes together
 phase_two #3 more eliminations
 @jury = Jury.new
